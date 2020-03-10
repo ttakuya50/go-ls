@@ -17,7 +17,7 @@ func Test_a_isA(t *testing.T) {
 		want   *bool
 	}{
 		{
-			name: "false",
+			name: "false!",
 			fields: fields{
 				bool:tt,
 			},
