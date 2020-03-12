@@ -3,19 +3,6 @@ on: [pull_request]
 
 jobs:
 
-  golangci-lint:
-    name: runner / golangci-lint (pre-build docker image)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v1
-      - name: golangci-lint
-        # uses: ./ # Build with Dockerfile
-        uses: docker://reviewdog/action-golangci-lint:v1 # Pre-built image
-        with:
-          github_token: ${{ secrets.github_token }}
-          golangci_lint_flags: "--config=.github/.golangci.yml ./testdata"
-
   golangci-lint-github-pr-review:
     name: runner / golangci-lint (github-pr-review)
     runs-on: ubuntu-latest
@@ -23,7 +10,7 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
       - name: golangci-lint w/ github-pr-review
-        uses: ./ # Build with Dockerfile
+        uses: docker://reviewdog/action-golangci-lint:v1
         with:
           github_token: ${{ secrets.github_token }}
           golangci_lint_flags: "--disable-all -E golint ./testdata"
