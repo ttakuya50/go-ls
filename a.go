@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -10,12 +11,15 @@ type a struct {
 	*bool
 }
 
-// isA
 func (a a) isA() *bool {
+	var t int
+	t=0
+	log.Println(t)
+
 	return a.bool
 }
 
-// run
+// あああああ
 func (a a) run(fileInfos []os.FileInfo) {
 	for _, fileInfo := range fileInfos {
 		fmt.Println(fileInfo.Name())
