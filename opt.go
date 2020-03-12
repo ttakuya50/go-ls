@@ -2,12 +2,13 @@ package main
 
 import "flag"
 
-// opt
+//
 type opt struct {
 	a
 	t
 }
 
+//
 func newOpt() *opt {
 	return &opt{
 		a: a{
