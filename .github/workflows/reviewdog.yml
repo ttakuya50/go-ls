@@ -13,7 +13,7 @@ jobs:
         uses: docker://reviewdog/action-golangci-lint:v1
         with:
           github_token: ${{ secrets.github_token }}
-          golangci_lint_flags: "--disable-all -E golint ./testdata"
+          golangci_lint_flags: "./testdata"
           tool_name: "golangci-lint-github-pr-review"
           reporter: "github-pr-review"
 
