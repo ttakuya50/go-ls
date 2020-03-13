@@ -1,8 +1,10 @@
 name: reviewdog
-on: [pull_request]
+
+on:
+  pull_request:
+    types: [opened,synchronize]
 
 jobs:
-
   golangci-lint-github-pr-review:
     name: runner / golangci-lint (github-pr-review)
     runs-on: ubuntu-latest
@@ -13,7 +15,7 @@ jobs:
         uses: docker://reviewdog/action-golangci-lint:v1 # Pre-built image
         with:
           github_token: ${{ secrets.github_token }}
-#          golangci_lint_flags: "--config=.github/.golangci.yml ./testdata"
+          golangci_lint_flags: "--config=.github/.golangci.yml"
           tool_name: "golangci-lint-github-pr-review"
           reporter: "github-pr-review"
 
@@ -28,6 +30,8 @@ jobs:
         # uses: docker://reviewdog/action-golangci-lint:v1 # pre-build docker image
         with:
           github_token: ${{ secrets.github_token }}
+          golangci_lint_flags: "--config=.github/.golangci.yml"
+          tool_name: "golangci-lint"
 
 #  # Use golint via golangci-lint binary with "warning" level.
 #  golint:
