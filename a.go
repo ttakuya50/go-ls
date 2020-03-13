@@ -13,13 +13,12 @@ type a struct {
 
 func (a a) isA() *bool {
 	var t int
-	t=0
+	t = 0
 	log.Println(t)
 
 	return a.bool
 }
 
-// あああああ
 func (a a) run(fileInfos []os.FileInfo) {
 	for _, fileInfo := range fileInfos {
 		fmt.Println(fileInfo.Name())
